@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React, {useState} from 'react';
 import { Button, Form, FormGroup, Label, Input, Modal, ModalHeader, ModalBody } from 'reactstrap';
 
 const WorkoutEdit = (props) => {
@@ -6,13 +6,13 @@ const WorkoutEdit = (props) => {
     const[editDef, setEditDef] = useState(props.workoutToUpdate.definition);
     const[editRes, setEditRes] = useState(props.workoutToUpdate.result);
     const workoutUpdate = (event, workout) => {
-        event.precentDefault();
-        fetch(`http://localhost:4000/log/${props.workoutToUpdate.id}`, {
+        event.preventDefault();
+        fetch(`http://localhost:4000/log/update/${props.workoutToUpdate.id}`, {
             method: 'PUT',
             body: JSON.stringify({log: {description: editDesc, definition: editDef, result: editRes}}),
             headers: new Headers({
                 'Content-Type': 'application/json',
-                'Authorization': props.token
+                'Authorization': `Bearer ${props.token}`
             })
         }).then((res) => {
             props.fetchWorkouts();

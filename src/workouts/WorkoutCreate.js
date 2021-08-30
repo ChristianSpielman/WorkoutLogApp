@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import {Button, Form, FormGroup, Label, Input} from 'reactstrap';
 
 const WorkoutCreate = (props) => {
-    const [description, setDescription] =useState('');
+    const [description, setDescription] = useState('');
     const [definition, setDefinition] = useState('');
     const [result, setResult] = useState('');
 
@@ -36,9 +36,9 @@ const WorkoutCreate = (props) => {
             <FormGroup>
                 <Label htmlFor="definition"/>
                 <Input type="select" name="definition" value={definition} onChange={(e) => setDefinition(e.target.value)}>
-                <option value="Time">Time</option>
-                <option value="Weight">Weight</option>
-                <option value="Distance">Distance</option>
+                    <option value="Time">Time</option>
+                    <option value="Weight">Weight</option>
+                    <option value="Distance">Distance</option>
                 </Input>
             </FormGroup>
             <FormGroup>
